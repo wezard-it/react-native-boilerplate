@@ -29,6 +29,20 @@
 - Eslint and autosave
 - Reanimated 2 and small example of a worklet
 
+## src Folders structure
+- assets: all folders related to UI, like fonts, locales, pngs, svgs and lottie files
+- components subdivided in:
+  - atomics:
+    - atoms: include basic building blocks of the UI interface: labels, input, buttons etc.
+    - molecules: groups of UI elements functioning together as a unit.
+    - organism: complex UI components made of groups of molecules and/or atoms and/or other organisms.
+  - hocs: higher-order components, wrapper functions that take a component as a parameter and return a new component
+  - hooks: allow us to use state in React Native functional components.
+  - providers: component is responsible to pass state value to consuming components that are descendants of this Provider.
+- configs: configuration files.
+- screens: main screens.
+- utils: methods that will be used across the app.
+
 ## Committing recap
 
 - fix: bug fixes, e.g. fix crash due to deprecated method.
