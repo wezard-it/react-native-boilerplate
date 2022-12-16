@@ -29,7 +29,7 @@
 - Eslint and autosave
 - Reanimated 2 and small example of a worklet
 
-## src Folders structure
+## src structure
 - assets: all folders related to UI, like fonts, locales, pngs, svgs and lottie files
 - components subdivided in:
   - atomics:

@@ -10,6 +10,7 @@
     "upgrade:ios": "cd ios && pod install && cd ..",
     "upgrade:android": "cd android && gradle clean --build-cache && cd ..",
     "upgrade:all": "yarn install && yarn upgrade:ios && yarn upgrade:android",
+    "upgrade:oss": "yarn upgrade:ios && yarn upgrade:android",
     "test": "jest",
     "lint": "eslint .",
     "revert:commit": "git reset --soft HEAD~1",
@@ -19,9 +20,20 @@
     "watchman:clean": "watchman watch-del-all"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.17.11",
+    "axios": "^1.2.1",
+    "i18next": "^22.4.5",
+    "mobx": "^6.7.0",
+    "mobx-persist": "^0.4.1",
+    "mobx-react-lite": "^3.4.0",
     "react": "18.1.0",
+    "react-i18next": "^12.1.1",
     "react-native": "0.70.6",
     "react-native-dotenv": "~3.0.0",
+    "react-native-gesture-handler": "^2.8.0",
+    "react-native-gradle-plugin": "^0.71.11",
+    "react-native-localize": "^2.2.4",
+    "react-native-navigation": "^7.30.6",
     "react-native-reanimated": "^2.13.0"
   },
   "devDependencies": {
