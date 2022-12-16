@@ -1,0 +1,24 @@
+{
+  "translation": {
+    "homepage_screen": {
+      "title": "Homepage"
+    },
+    "login_screen": {
+      "title": "Login"
+    },
+    "subscribe_screen": {
+      "title": "Iscriviti",
+      "description": "Contenuto della pagina Iscriviti."
+    },
+    "forgot_password_screen": {
+      "title": "Password Dimenticata",
+      "description": "Contenuto della pagina Password dimenticata."
+    },
+    "onboarding_screen": {
+      "title": "OnBoarding"
+    },
+    "splash_screen": {
+      "title": "Splash screen"
+    }
+  }
+}
