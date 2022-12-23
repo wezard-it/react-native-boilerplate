@@ -11,7 +11,7 @@ const Style = StyleSheet.create({
     flex: 1
   },
   titleContainer: {
-    padding: 10
+    paddingHorizontal: 10
   },
   title: {
     fontFamily: 'Avenir',
