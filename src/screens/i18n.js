@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import i18next from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import * as RNLocalize from 'react-native-localize'
@@ -7,22 +8,19 @@ import it from '../assets/locales/it.json'
 const languageDetector = {
   type: 'languageDetector',
   async: true,
-  detect: callback => {
+  detect: (callback) => {
     const language = RNLocalize.findBestAvailableLanguage(['en', 'it'])?.languageTag
     callback(language)
   },
   init: () => {},
-  cacheUserLanguage: () => {}
+  cacheUserLanguage: () => {},
 }
 
-i18next
-  .use(languageDetector)
-  .use(initReactI18next)
-  .init({
-    compatibilityJSON: 'v3',
-    fallbackLng: 'en',
-    debug: true,
-    resources: { en, it }
-  })
+i18next.use(languageDetector).use(initReactI18next).init({
+  compatibilityJSON: 'v3',
+  fallbackLng: 'en',
+  debug: true,
+  resources: { en, it },
+})
 
 export default i18next

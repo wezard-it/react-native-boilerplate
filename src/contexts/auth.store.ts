@@ -3,12 +3,12 @@ import { observable, action, makeAutoObservable } from 'mobx'
 import { persist } from 'mobx-persist'
 
 class AuthStore {
-  @persist @observable isAuthenticated: boolean = false
-  @persist @observable isOnboardingVisited: boolean = false
-  @persist @observable arePermissionsShown: boolean = false
-  @observable showSplash: boolean = true
+  @persist @observable isAuthenticated = false
+  @persist @observable isOnboardingVisited = false
+  @persist @observable arePermissionsShown = false
+  @observable showSplash = true
 
-  constructor () {
+  constructor() {
     makeAutoObservable(this, {
       isAuthenticated: observable,
       isOnboardingVisited: observable,
@@ -17,23 +17,23 @@ class AuthStore {
       setAuth: action.bound,
       setOnboardingVisited: action.bound,
       setArePermissionsShown: action.bound,
-      setShowSplash: action.bound
+      setShowSplash: action.bound,
     })
   }
 
-  setAuth (status: boolean = false) {
+  setAuth(status = false) {
     this.isAuthenticated = status
   }
 
-  setOnboardingVisited (status: boolean = false) {
+  setOnboardingVisited(status = false) {
     this.isOnboardingVisited = status
   }
 
-  setArePermissionsShown (status: boolean = false) {
+  setArePermissionsShown(status = false) {
     this.arePermissionsShown = status
   }
 
-  setShowSplash (status: boolean = true) {
+  setShowSplash(status = true) {
     this.showSplash = status
   }
 }

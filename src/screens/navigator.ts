@@ -12,10 +12,10 @@ import Subscribe from './Subscribe/Subscribe'
 
 // App stack
 export const BottomTabs = {
-  id: 'BOTTOM_TABS'
+  id: 'BOTTOM_TABS',
 }
 export const TabsStack = {
-  id: 'STACK_TABS'
+  id: 'STACK_TABS',
 }
 // export const TabsScreen = {
 //   id: 'TABS',
@@ -23,36 +23,36 @@ export const TabsStack = {
 // }
 export const HomepageScreen = {
   id: 'HOME_PAGE',
-  name: 'basic.Homepage'
+  name: 'basic.Homepage',
 }
 
 // Auth stack
 export const AuthStack = {
-  id: 'STACK_AUTH'
+  id: 'STACK_AUTH',
 }
 export const RedirectScreen = {
   id: 'REDIRECT',
-  name: 'basic.Redirect'
+  name: 'basic.Redirect',
 }
 export const LoginScreen = {
   id: 'LOGIN',
-  name: 'basic.Login'
+  name: 'basic.Login',
 }
 export const SplashScreen = {
   id: 'SPLASHSCREEN',
-  name: 'basic.SplasScreen'
+  name: 'basic.SplasScreen',
 }
 export const SubscribeScreen = {
   id: 'SUBSCRIBE',
-  name: 'basic.Subscribe'
+  name: 'basic.Subscribe',
 }
 export const ForgotPasswordScreen = {
   id: 'FORGOT_PASSWORD',
-  name: 'basic.ForgotPassword'
+  name: 'basic.ForgotPassword',
 }
 export const OnBoardingScreen = {
   id: 'ON_BOARDING',
-  name: 'basic.OnBoarding'
+  name: 'basic.OnBoarding',
 }
 
 // App screens
@@ -70,32 +70,32 @@ Navigation.registerComponent(OnBoardingScreen.name, () => gestureHandlerRootHOC(
 Navigation.setDefaultOptions({
   layout: {
     orientation: ['portrait'],
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
   animations: {
     setRoot: {
       waitForRender: true,
-      alpha: { from: 0, to: 1, duration: 400 }
+      alpha: { from: 0, to: 1, duration: 400 },
     },
     showModal: {
-      waitForRender: true
+      waitForRender: true,
     },
     push: {
-      waitForRender: true
-    }
-  }
+      waitForRender: true,
+    },
+  },
 })
 
 export const globalStackOptions = {
   topBar: {
-    visible: false
-  }
+    visible: false,
+  },
 }
 
 export const globalComponentOptions = {
   layout: {
-    componentBackgroundColor: 'white'
-  }
+    componentBackgroundColor: 'white',
+  },
 }
 
 // App Root
@@ -113,24 +113,24 @@ const appRoot = {
                   id: HomepageScreen.id,
                   name: HomepageScreen.name,
                   options: {
-                    ...globalComponentOptions
-                  }
-                }
-              }
+                    ...globalComponentOptions,
+                  },
+                },
+              },
             ],
             options: {
-              ...globalStackOptions
-            }
-          }
-        }
+              ...globalStackOptions,
+            },
+          },
+        },
       ],
       options: {
         bottomTabs: {
-          visible: false
-        }
-      }
-    }
-  }
+          visible: false,
+        },
+      },
+    },
+  },
 }
 
 // Auth root
@@ -144,16 +144,16 @@ const authRoot = {
             id: RedirectScreen.id,
             name: RedirectScreen.name,
             options: {
-              ...globalComponentOptions
-            }
-          }
-        }
+              ...globalComponentOptions,
+            },
+          },
+        },
       ],
       options: {
-        ...globalStackOptions
-      }
-    }
-  }
+        ...globalStackOptions,
+      },
+    },
+  },
 }
 
 export { appRoot, authRoot }

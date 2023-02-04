@@ -1,0 +1,4 @@
+<!-- Change color based on the design guide lines -->
+<resources>
+    <color name="white">#FFFFFF</color>
+</resources>

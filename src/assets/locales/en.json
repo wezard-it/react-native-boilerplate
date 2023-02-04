@@ -1,10 +1,14 @@
 {
   "translation": {
     "homepage_screen": {
-      "title": "Homepage"
+      "title": "Homepage",
+      "logout": "Logout"
     },
     "login_screen": {
-      "title": "Login"
+      "title": "Login",
+      "home": "Go to Home",
+      "forgot": "Go to Forgot password",
+      "subscribe": "Go to Subscribe"
     },
     "subscribe_screen": {
       "title": "Subscribe",

@@ -11,13 +11,12 @@ import Style from './OnBoarding.style'
 const base = 'onboarding_screen'
 
 interface Props {
-  componentId: string,
+  componentId: string
 }
 
-const OnBoarding = observer(({
-  componentId = ''
-}: Partial<Props>) => {
+const OnBoarding = observer(({ componentId = '' }: Partial<Props>) => {
   const { t } = useTranslation()
+
   // Auth variables
   const { setOnboardingVisited } = useAuth()
 
@@ -27,9 +26,11 @@ const OnBoarding = observer(({
     Navigation.setRoot(appRoot)
   }
 
+  console.log(componentId)
+
   return (
     <SafeAreaView style={Style.safeArea}>
-      <Pressable style={{ flex: 1 }} onPress={_onBoardingCompleted}>
+      <Pressable style={Style.pressable} onPress={_onBoardingCompleted}>
         <View style={Style.container}>
           <Text style={Style.title}>{t(`${base}.title`)}</Text>
         </View>
