@@ -9,12 +9,10 @@ import Style from './Subscribe.style'
 const base = 'subscribe_screen'
 
 interface Props {
-  componentId: string,
+  componentId: string
 }
 
-const Subscribe = observer(({
-  componentId = ''
-}: Partial<Props>) => {
+const Subscribe = observer(({ componentId = '' }: Partial<Props>) => {
   const { t } = useTranslation()
 
   // Methods

@@ -10,18 +10,18 @@ const base = 'forgot_password_screen'
 
 // Interface
 interface Props {
-  componentId: string,
+  componentId: string
 }
 
-const ForgotPassword = observer(({
-  componentId = ''
-}: Partial<Props>) => {
+const ForgotPassword = observer(({ componentId = '' }: Partial<Props>) => {
   const { t } = useTranslation()
 
   // Methods
   const _onNavigateBack = () => {
     Navigation.pop(componentId)
   }
+
+  console.log(componentId)
 
   return (
     <SafeAreaView style={Style.safeArea}>

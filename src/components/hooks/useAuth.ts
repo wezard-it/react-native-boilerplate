@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { AuthStoreContext } from '../../contexts/auth.store'
 
-function useAuth () {
+function useAuth() {
   const { isAuthenticated, setAuth } = useContext(AuthStoreContext)
   const { isOnboardingVisited, setOnboardingVisited } = useContext(AuthStoreContext)
   const { arePermissionsShown, setArePermissionsShown } = useContext(AuthStoreContext)
@@ -15,7 +15,7 @@ function useAuth () {
     setAuth,
     setOnboardingVisited,
     setArePermissionsShown,
-    setShowSplash
+    setShowSplash,
   }
 }
 

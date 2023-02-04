@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react'
 import { SafeAreaView, View, Image } from 'react-native'
 import { observer } from 'mobx-react-lite'
@@ -8,12 +9,10 @@ const logo = require('../../assets/pngs/logo.png')
 
 // Interface
 interface Props {
-  componentId: string,
+  componentId: string
 }
 
-const SplashScreen = observer(({
-  componentId = ''
-}: Partial<Props>) => {
+const SplashScreen = observer(({ componentId = '' }: Partial<Props>) => {
   // Auth variables
   const { setShowSplash } = useAuth()
 
@@ -21,6 +20,8 @@ const SplashScreen = observer(({
   useEffect(() => {
     setTimeout(() => setShowSplash(false), 1500)
   }, [])
+
+  console.log(componentId)
 
   return (
     <SafeAreaView style={Style.safeArea}>

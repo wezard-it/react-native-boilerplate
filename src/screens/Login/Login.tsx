@@ -11,12 +11,10 @@ import Style from './Login.style'
 const base = 'login_screen'
 
 interface Props {
-  componentId: string,
+  componentId: string
 }
 
-const Login = observer(({
-  componentId = ''
-}: Partial<Props>) => {
+const Login = observer(({ componentId = '' }: Partial<Props>) => {
   const { t } = useTranslation()
 
   // Auth variables
@@ -32,9 +30,9 @@ const Login = observer(({
       component: {
         name: ForgotPasswordScreen.name,
         options: {
-          popGesture: false
-        }
-      }
+          popGesture: false,
+        },
+      },
     })
   }
 
@@ -43,9 +41,9 @@ const Login = observer(({
       component: {
         name: SubscribeScreen.name,
         options: {
-          popGesture: false
-        }
-      }
+          popGesture: false,
+        },
+      },
     })
   }
 
@@ -56,14 +54,14 @@ const Login = observer(({
           <Text style={Style.title}>{t(`${base}.title`)}</Text>
         </View>
         <View style={Style.body}>
-          <Pressable style={{ padding: 10, paddingBottom: 20 }} onPress={_onLoginPressed}>
-            <Text>Go to Home</Text>
+          <Pressable style={Style.pressable} onPress={_onLoginPressed}>
+            <Text>{t(`${base}.home`)}</Text>
           </Pressable>
-          <Pressable style={{ padding: 10, paddingBottom: 20 }} onPress={_onForgotPressed}>
-            <Text>Go to Forgot password</Text>
+          <Pressable style={Style.pressable} onPress={_onForgotPressed}>
+            <Text>{t(`${base}.forgot`)}</Text>
           </Pressable>
-          <Pressable style={{ padding: 10, paddingBottom: 20 }} onPress={_onSubscribePressed}>
-            <Text>Go to Subscribe</Text>
+          <Pressable style={Style.pressable} onPress={_onSubscribePressed}>
+            <Text>{t(`${base}.subscribe`)}</Text>
           </Pressable>
         </View>
       </View>

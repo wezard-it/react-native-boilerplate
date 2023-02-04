@@ -9,15 +9,14 @@ import { authRoot } from './src/screens/navigator'
 LogBox.ignoreLogs(ignore)
 
 // Store hydration function.
-async function hydrateStores () {
+async function hydrateStores() {
   const hydrate = create({ storage: AsyncStorage })
-  Promise.all([
-    hydrate('AuthStore', authStore)
-  ])
+  Promise.all([hydrate('AuthStore', authStore)])
 }
 
-Navigation.events().registerAppLaunchedListener(() => {
-  hydrateStores().then(() => {
-    Navigation.setRoot(authRoot)
-  })
+Navigation.events().registerAppLaunchedListener(async () => {
+  await hydrateStores()
+  Navigation.setRoot(authRoot)
+  // hydrateStores().then(() => {
+  // })
 })

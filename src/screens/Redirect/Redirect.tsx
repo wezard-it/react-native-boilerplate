@@ -1,26 +1,20 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useCallback, useEffect, useState, Suspense } from 'react'
 import { View, Text } from 'react-native'
 import { observer } from 'mobx-react-lite'
 import { Navigation } from 'react-native-navigation'
 import { useAuth } from '../../components/hooks'
-import {
-  appRoot,
-  LoginScreen,
-  OnBoardingScreen,
-  SplashScreen
-} from '../navigator'
+import { appRoot, LoginScreen, OnBoardingScreen, SplashScreen } from '../navigator'
 import Style from './Redirect.style'
 
 // Global variables
 import '../i18n'
 
 interface Props {
-  componentId: string,
+  componentId: string
 }
 
-const Redirect = observer(({
-  componentId = ''
-}: Partial<Props>) => {
+const Redirect = observer(({ componentId = '' }: Partial<Props>) => {
   const { isAuthenticated, setAuth } = useAuth()
   const { isOnboardingVisited, showSplash } = useAuth()
   const [isFirstLaunch, setIsFirstLaunch] = useState(true)
@@ -39,7 +33,7 @@ const Redirect = observer(({
   const handleRedirect = useCallback(() => {
     if (showSplash) {
       onNavigate(SplashScreen.name, {
-        push: { enabled: false }
+        push: { enabled: false },
       })
     } else {
       if (!isFirstLaunch) {
@@ -71,12 +65,12 @@ const Redirect = observer(({
             push: {
               enabled: true,
               content: {
-                alpha: { from: 0, to: 1, duration: 300 }
-              }
-            }
-          }
-        }
-      }
+                alpha: { from: 0, to: 1, duration: 300 },
+              },
+            },
+          },
+        },
+      },
     })
   }
 

@@ -35,12 +35,12 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
 	<key>NSCameraUsageDescription</key>
-		<string>$(PRODUCT_NAME) needs access to your Camera.</string>
+	<string>$(PRODUCT_NAME) needs access to your Camera.</string>
+	<key>NSLocationTemporaryUsageDescriptionDictionary</key>
+	<string>$(PRODUCT_NAME) needs access to your Location</string>
 	<key>NSMicrophoneUsageDescription</key>
-		<string>$(PRODUCT_NAME) needs access to your Microphone.</string>
+	<string>$(PRODUCT_NAME) needs access to your Microphone.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AntDesign.ttf</string>
