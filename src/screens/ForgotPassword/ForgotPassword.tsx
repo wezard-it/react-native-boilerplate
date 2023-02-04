@@ -1,19 +1,18 @@
 import React from 'react'
 import { SafeAreaView, View, Text, Pressable } from 'react-native'
-import { observer } from 'mobx-react-lite'
 import { useTranslation } from 'react-i18next'
 import { Navigation } from 'react-native-navigation'
+import { ScreenProps } from 'types'
 import Style from './ForgotPassword.style'
 
 // Language variable
 const base = 'forgot_password_screen'
 
 // Interface
-interface Props {
-  componentId: string
-}
 
-const ForgotPassword = observer(({ componentId = '' }: Partial<Props>) => {
+type Props = ScreenProps
+
+const ForgotPassword = ({ componentId = '' }: Partial<Props>): JSX.Element => {
   const { t } = useTranslation()
 
   // Methods
@@ -37,6 +36,6 @@ const ForgotPassword = observer(({ componentId = '' }: Partial<Props>) => {
       </Pressable>
     </SafeAreaView>
   )
-})
+}
 
 export default ForgotPassword

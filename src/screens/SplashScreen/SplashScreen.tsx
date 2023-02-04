@@ -1,24 +1,20 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react'
 import { SafeAreaView, View, Image } from 'react-native'
-import { observer } from 'mobx-react-lite'
-import { useAuth } from '../../components/hooks'
+import { useDispatch } from 'react-redux'
+import { hideSplashscreen } from 'store/modules/ui/ui.actions'
+import { ScreenProps } from 'types'
 import Style from './SplashScreen.style'
 
 const logo = require('../../assets/pngs/logo.png')
 
-// Interface
-interface Props {
-  componentId: string
-}
+type Props = ScreenProps
 
-const SplashScreen = observer(({ componentId = '' }: Partial<Props>) => {
-  // Auth variables
-  const { setShowSplash } = useAuth()
+const SplashScreen = ({ componentId = '' }: Partial<Props>): JSX.Element => {
+  const dispatch = useDispatch()
 
-  // Hooks
   useEffect(() => {
-    setTimeout(() => setShowSplash(false), 1500)
+    setTimeout(() => dispatch(hideSplashscreen()), 1500)
   }, [])
 
   console.log(componentId)
@@ -30,6 +26,6 @@ const SplashScreen = observer(({ componentId = '' }: Partial<Props>) => {
       </View>
     </SafeAreaView>
   )
-})
+}
 
 export default SplashScreen

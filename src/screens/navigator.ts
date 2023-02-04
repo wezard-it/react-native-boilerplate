@@ -1,5 +1,7 @@
+import NavigationWrapper from 'components/hocs/NavigationWrapper/NavigationWrapper'
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler'
 import { Navigation } from 'react-native-navigation'
+import { withNavigationProvider } from 'react-native-navigation-hooks'
 
 // Import Screens
 import ForgotPassword from './ForgotPassword/ForgotPassword'
@@ -17,16 +19,10 @@ export const BottomTabs = {
 export const TabsStack = {
   id: 'STACK_TABS',
 }
-// export const TabsScreen = {
-//   id: 'TABS',
-//   name: 'vintageHunters.Tabs'
-// }
 export const HomepageScreen = {
   id: 'HOME_PAGE',
   name: 'basic.Homepage',
 }
-
-// Auth stack
 export const AuthStack = {
   id: 'STACK_AUTH',
 }
@@ -55,16 +51,53 @@ export const OnBoardingScreen = {
   name: 'basic.OnBoarding',
 }
 
-// App screens
-Navigation.registerComponent(HomepageScreen.name, () => gestureHandlerRootHOC(Homepage))
-
-// Auth screens
-Navigation.registerComponent(SplashScreen.name, () => gestureHandlerRootHOC(Splash))
-Navigation.registerComponent(RedirectScreen.name, () => gestureHandlerRootHOC(Redirect))
-Navigation.registerComponent(LoginScreen.name, () => gestureHandlerRootHOC(Login))
-Navigation.registerComponent(SubscribeScreen.name, () => gestureHandlerRootHOC(Subscribe))
-Navigation.registerComponent(ForgotPasswordScreen.name, () => gestureHandlerRootHOC(ForgotPassword))
-Navigation.registerComponent(OnBoardingScreen.name, () => gestureHandlerRootHOC(OnBoarding))
+export const registerScreens = (store: any, persistor: any) => {
+  Navigation.registerComponent(
+    SplashScreen.name,
+    () =>
+      gestureHandlerRootHOC(withNavigationProvider(NavigationWrapper(Splash, store, persistor))),
+    () => Splash,
+  )
+  Navigation.registerComponent(
+    RedirectScreen.name,
+    () =>
+      gestureHandlerRootHOC(withNavigationProvider(NavigationWrapper(Redirect, store, persistor))),
+    () => Redirect,
+  )
+  Navigation.registerComponent(
+    LoginScreen.name,
+    () => gestureHandlerRootHOC(withNavigationProvider(NavigationWrapper(Login, store, persistor))),
+    () => Login,
+  )
+  Navigation.registerComponent(
+    SubscribeScreen.name,
+    () =>
+      gestureHandlerRootHOC(withNavigationProvider(NavigationWrapper(Subscribe, store, persistor))),
+    () => Subscribe,
+  )
+  Navigation.registerComponent(
+    ForgotPasswordScreen.name,
+    () =>
+      gestureHandlerRootHOC(
+        withNavigationProvider(NavigationWrapper(ForgotPassword, store, persistor)),
+      ),
+    () => ForgotPassword,
+  )
+  Navigation.registerComponent(
+    OnBoardingScreen.name,
+    () =>
+      gestureHandlerRootHOC(
+        withNavigationProvider(NavigationWrapper(OnBoarding, store, persistor)),
+      ),
+    () => OnBoarding,
+  )
+  Navigation.registerComponent(
+    HomepageScreen.name,
+    () =>
+      gestureHandlerRootHOC(withNavigationProvider(NavigationWrapper(Homepage, store, persistor))),
+    () => Homepage,
+  )
+}
 
 // Global options
 Navigation.setDefaultOptions({
@@ -88,6 +121,9 @@ Navigation.setDefaultOptions({
 
 export const globalStackOptions = {
   topBar: {
+    visible: false,
+  },
+  bottomTabs: {
     visible: false,
   },
 }

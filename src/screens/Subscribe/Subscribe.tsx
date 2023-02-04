@@ -1,18 +1,16 @@
 import React from 'react'
 import { SafeAreaView, View, Text, Pressable } from 'react-native'
-import { observer } from 'mobx-react-lite'
 import { useTranslation } from 'react-i18next'
 import { Navigation } from 'react-native-navigation'
+import { ScreenProps } from 'types'
 import Style from './Subscribe.style'
 
 // Language variable
 const base = 'subscribe_screen'
 
-interface Props {
-  componentId: string
-}
+type Props = ScreenProps
 
-const Subscribe = observer(({ componentId = '' }: Partial<Props>) => {
+const Subscribe = ({ componentId = '' }: Partial<Props>): JSX.Element => {
   const { t } = useTranslation()
 
   // Methods
@@ -34,6 +32,6 @@ const Subscribe = observer(({ componentId = '' }: Partial<Props>) => {
       </Pressable>
     </SafeAreaView>
   )
-})
+}
 
 export default Subscribe

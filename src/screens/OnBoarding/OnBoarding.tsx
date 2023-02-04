@@ -1,28 +1,22 @@
 import React from 'react'
 import { SafeAreaView, View, Text, Pressable } from 'react-native'
-import { observer } from 'mobx-react-lite'
 import { useTranslation } from 'react-i18next'
 import { Navigation } from 'react-native-navigation'
-import { useAuth } from '../../components/hooks'
+import { ScreenProps } from 'types'
 import { appRoot } from '../navigator'
 import Style from './OnBoarding.style'
 
 // Language variable
 const base = 'onboarding_screen'
 
-interface Props {
-  componentId: string
-}
+type Props = ScreenProps
 
-const OnBoarding = observer(({ componentId = '' }: Partial<Props>) => {
+const OnBoarding = ({ componentId = '' }: Partial<Props>): JSX.Element => {
   const { t } = useTranslation()
-
-  // Auth variables
-  const { setOnboardingVisited } = useAuth()
 
   // Methods
   const _onBoardingCompleted = () => {
-    setOnboardingVisited(true)
+    console.log('on boarding visited')
     Navigation.setRoot(appRoot)
   }
 
@@ -37,6 +31,6 @@ const OnBoarding = observer(({ componentId = '' }: Partial<Props>) => {
       </Pressable>
     </SafeAreaView>
   )
-})
+}
 
 export default OnBoarding

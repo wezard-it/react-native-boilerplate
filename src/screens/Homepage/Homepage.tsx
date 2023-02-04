@@ -1,28 +1,24 @@
 import React from 'react'
 import { SafeAreaView, View, Text, Pressable } from 'react-native'
-import { useAuth } from 'hooks'
-import { observer } from 'mobx-react-lite'
 import { useTranslation } from 'react-i18next'
-import { Navigation } from 'react-native-navigation'
-import { authRoot } from '../navigator'
+import { ScreenProps } from 'types'
 import Style from './Homepage.style'
 
 // Language variable
 const base = 'homepage_screen'
 
-interface Props {
-  componentId: string
-}
+type Props = ScreenProps
 
-const Homepage = observer(({ componentId = '' }: Partial<Props>) => {
+const Homepage = ({ componentId = '' }: Partial<Props>): JSX.Element => {
   const { t } = useTranslation()
 
   // Auth variables
-  const { setAuth } = useAuth()
+  // const { setAuth } = useAuth()
 
   const _onLogoutPressed = () => {
-    Navigation.setRoot(authRoot)
-    setAuth(false)
+    // Navigation.setRoot(authRoot)
+    // setAuth(false)
+    console.log('logout')
   }
 
   console.log(componentId)
@@ -41,6 +37,6 @@ const Homepage = observer(({ componentId = '' }: Partial<Props>) => {
       </View>
     </SafeAreaView>
   )
-})
+}
 
 export default Homepage

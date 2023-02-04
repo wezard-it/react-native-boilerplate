@@ -1,3 +1,3 @@
-import useAuth from './useAuth'
+import useIsAppForeground from './useIsAppForeground'
 
-export { useAuth }
+export { useIsAppForeground }

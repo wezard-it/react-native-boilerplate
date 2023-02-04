@@ -1,28 +1,23 @@
 import React from 'react'
 import { SafeAreaView, View, Text, Pressable } from 'react-native'
-import { observer } from 'mobx-react-lite'
 import { useTranslation } from 'react-i18next'
 import { Navigation } from 'react-native-navigation'
-import { useAuth } from '../../components/hooks'
+import { ScreenProps } from 'types'
 import { SubscribeScreen, ForgotPasswordScreen } from '../navigator'
 import Style from './Login.style'
 
 // Language variable
 const base = 'login_screen'
 
-interface Props {
-  componentId: string
-}
+type Props = ScreenProps
 
-const Login = observer(({ componentId = '' }: Partial<Props>) => {
+const Login = ({ componentId = '' }: Partial<Props>): JSX.Element => {
   const { t } = useTranslation()
-
-  // Auth variables
-  const { setAuth } = useAuth()
 
   // Methods
   const _onLoginPressed = () => {
-    setAuth(true)
+    // setAuth(true)
+    console.log('login')
   }
 
   const _onForgotPressed = () => {
@@ -67,6 +62,6 @@ const Login = observer(({ componentId = '' }: Partial<Props>) => {
       </View>
     </SafeAreaView>
   )
-})
+}
 
 export default Login

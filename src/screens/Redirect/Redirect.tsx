@@ -1,54 +1,65 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useCallback, useEffect, useState, Suspense } from 'react'
+import React, { useCallback, useEffect, Suspense } from 'react'
 import { View, Text } from 'react-native'
-import { observer } from 'mobx-react-lite'
 import { Navigation } from 'react-native-navigation'
-import { useAuth } from '../../components/hooks'
-import { appRoot, LoginScreen, OnBoardingScreen, SplashScreen } from '../navigator'
+import { useSelector } from 'react-redux'
+import { uiSplashShowSelector } from 'store/modules/ui/ui.selectors'
+import { ScreenProps } from 'types'
+import { appRoot, LoginScreen, SplashScreen } from '../navigator'
 import Style from './Redirect.style'
 
 // Global variables
 import '../i18n'
 
-interface Props {
-  componentId: string
-}
+type Props = ScreenProps
 
-const Redirect = observer(({ componentId = '' }: Partial<Props>) => {
-  const { isAuthenticated, setAuth } = useAuth()
-  const { isOnboardingVisited, showSplash } = useAuth()
-  const [isFirstLaunch, setIsFirstLaunch] = useState(true)
+const Redirect = ({ componentId = '' }: Partial<Props>): JSX.Element => {
+  const isAuthenticated = false
+  const showSplash = useSelector(uiSplashShowSelector)
 
   // Hooks
-  useEffect(() => {
-    if (isFirstLaunch) {
-      if (!isOnboardingVisited) {
-        setAuth(false)
-      }
-      setIsFirstLaunch(false)
-    }
-  }, [isFirstLaunch])
+  // useEffect(() => {
+  //   if (isFirstLaunch) {
+  //     if (!isOnboardingVisited) {
+  //       setAuth(false)
+  //     }
+  //     setIsFirstLaunch(false)
+  //   }
+  // }, [isFirstLaunch])
+
+  // // Screens redirect handler
+  // const handleRedirect = useCallback(() => {
+  //   if (showSplash) {
+  //     onNavigate(SplashScreen.name, {
+  //       push: { enabled: false },
+  //     })
+  //   } else {
+  //     if (!isFirstLaunch) {
+  //       if (isAuthenticated) {
+  //         if (isOnboardingVisited) {
+  //           Navigation.setRoot(appRoot)
+  //         } else {
+  //           onNavigate(OnBoardingScreen.name)
+  //         }
+  //       } else {
+  //         onNavigate(LoginScreen.name)
+  //       }
+  //     }
+  //   }
+  // }, [componentId, isAuthenticated, isFirstLaunch, showSplash])
 
   // Screens redirect handler
   const handleRedirect = useCallback(() => {
     if (showSplash) {
-      onNavigate(SplashScreen.name, {
-        push: { enabled: false },
-      })
+      onNavigate(SplashScreen.name, { push: { enabled: false } })
     } else {
-      if (!isFirstLaunch) {
-        if (isAuthenticated) {
-          if (isOnboardingVisited) {
-            Navigation.setRoot(appRoot)
-          } else {
-            onNavigate(OnBoardingScreen.name)
-          }
-        } else {
-          onNavigate(LoginScreen.name)
-        }
+      if (isAuthenticated) {
+        Navigation.setRoot(appRoot)
+      } else {
+        onNavigate(LoginScreen.name)
       }
     }
-  }, [componentId, isAuthenticated, isFirstLaunch, showSplash])
+  }, [componentId, isAuthenticated, showSplash])
 
   useEffect(() => {
     handleRedirect()
@@ -86,6 +97,6 @@ const Redirect = observer(({ componentId = '' }: Partial<Props>) => {
       <View style={Style.boot} />
     </Suspense>
   )
-})
+}
 
 export default Redirect
