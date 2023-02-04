@@ -10,11 +10,10 @@
 ## Features:
 
 - Navigation init
-- Storage with mobx
+- Storage with redux
 - Basic folder structure
 - Multi language with i18n
 - Eslint and autosave
-- Reanimated 2 and small worklet example
 
 ## src structure
 - assets: all folders related to UI, like fonts, locales, pngs, svgs and lottie files
