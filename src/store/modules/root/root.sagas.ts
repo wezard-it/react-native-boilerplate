@@ -18,7 +18,7 @@ function* globalErrorHandlerSaga(action: ActionWithPayload<unknown>): Generator 
 }
 
 function* debugNavigationSaga(action: ActionWithPayload<INavigatePayload>): Generator {
-  yield console.log('todo')
+  yield console.log('todo', action)
   // yield put({ type: RootActions.NAVIGATE, payload: action.payload })
 }
 

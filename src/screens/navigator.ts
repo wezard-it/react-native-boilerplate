@@ -2,6 +2,9 @@ import NavigationWrapper from 'components/hocs/NavigationWrapper/NavigationWrapp
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler'
 import { Navigation } from 'react-native-navigation'
 import { withNavigationProvider } from 'react-native-navigation-hooks'
+import { IModuleStore } from 'redux-dynamic-modules'
+import { Persistor } from 'redux-persist'
+import { MainState } from 'store/types'
 
 // Import Screens
 import ForgotPassword from './ForgotPassword/ForgotPassword'
@@ -51,7 +54,7 @@ export const OnBoardingScreen = {
   name: 'basic.OnBoarding',
 }
 
-export const registerScreens = (store: any, persistor: any) => {
+export const registerScreens = (store: IModuleStore<MainState>, persistor: Persistor) => {
   Navigation.registerComponent(
     SplashScreen.name,
     () =>
