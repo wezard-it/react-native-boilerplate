@@ -6,7 +6,7 @@ import persistCombineReducers from 'redux-persist/es/persistCombineReducers'
 import concatenateReducers from '../utils/redux/concatenate-reducers'
 import getActionsEmitterExtension from './extensions/actions-emitter'
 import getErrorHandlerExtension from './extensions/error-handler'
-import { getRootModule, getUIModule } from './modules'
+import { getAuthModule, getRootModule, getUIModule } from './modules'
 import { MainState } from './types'
 
 const sagaContext = {}
@@ -32,6 +32,7 @@ const store: IModuleStore<MainState> = createStore(
   },
   getRootModule(),
   getUIModule(),
+  getAuthModule(),
 )
 
 export const persistor = persistStore(store)

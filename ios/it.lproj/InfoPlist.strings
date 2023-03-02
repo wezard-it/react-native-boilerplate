@@ -1,0 +1,24 @@
+/* 
+  InfoPlist.strings
+  basic
+
+  Created by Eric Wekouri on 02/03/23.
+  
+*/
+
+"CFBundleDisplayName" = "Basic";
+"CFBundleName" = "Basic";
+"NSCameraUsageDescription" = "Basic necessita dell'accesso alla fotocamera.";
+"NSLocationTemporaryUsageDescriptionDictionary" = "Basic necessità dell'accesso alla tua posizione per sbloccare le funzionalità principali.";
+"NSLocationUsageDescription" = "Basic necessità dell'accesso alla tua posizione per sbloccare le funzionalità principali.";
+"NSLocationWhenInUseUsageDescription" = "Basic necessità dell'accesso alla tua posizione per sbloccare le funzionalità principali.";
+"NSMicrophoneUsageDescription" = "Basic necessita dell'accesso al microfono per registrare video.";
+"NSPhotoLibraryAddUsageDescription" = "Basic necessita dell'accesso alla libreria per aggiungere salvate.";
+"NSPhotoLibraryUsageDescription" = "Basic necessita dell'accesso alla libreria per aggiungere salvate.";
+"NSContactsUsageDescription" = "La nostra app non richiede questa autorizzazione o utilizza questa funzionalità, ma è inclusa nel nostro info.plist poiché la nostra app utilizza la libreria react-native-permissions, che fa riferimento a questa autorizzazione nel suo codice.";
+"NSCalendarsUsageDescription" = "La nostra app non richiede questa autorizzazione o utilizza questa funzionalità, ma è inclusa nel nostro info.plist poiché la nostra app utilizza la libreria react-native-permissions, che fa riferimento a questa autorizzazione nel suo codice.";
+"NSBluetoothPeripheralUsageDescription" = "La nostra app non richiede questa autorizzazione o utilizza questa funzionalità, ma è inclusa nel nostro info.plist poiché la nostra app utilizza la libreria react-native-permissions, che fa riferimento a questa autorizzazione nel suo codice.";
+"NSAppleMusicUsageDescription" = "La nostra app non richiede questa autorizzazione o utilizza questa funzionalità, ma è inclusa nel nostro info.plist poiché la nostra app utilizza la libreria react-native-permissions, che fa riferimento a questa autorizzazione nel suo codice.";
+"NSMotionUsageDescription" = "La nostra app non richiede questa autorizzazione o utilizza questa funzionalità, ma è inclusa nel nostro info.plist poiché la nostra app utilizza la libreria react-native-permissions, che fa riferimento a questa autorizzazione nel suo codice.";
+"NSBluetoothAlwaysUsageDescription" = "La nostra app non richiede questa autorizzazione o utilizza questa funzionalità, ma è inclusa nel nostro info.plist poiché la nostra app utilizza la libreria react-native-permissions, che fa riferimento a questa autorizzazione nel suo codice.";
+"NSUserTrackingUsageDescription" = "Attivando questa funzionalità avrai la possibilità di vedere pubblicità personalizzata.";

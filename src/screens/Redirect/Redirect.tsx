@@ -3,8 +3,8 @@ import React, { useCallback, useEffect, Suspense } from 'react'
 import { View, Text } from 'react-native'
 import { Navigation } from 'react-native-navigation'
 import { useSelector } from 'react-redux'
+import { authAuthenticatedSelector } from 'store/modules/auth/auth.selectors'
 import { uiSplashShowSelector } from 'store/modules/ui/ui.selectors'
-import { ScreenProps } from 'types'
 import { appRoot, LoginScreen, SplashScreen } from '../navigator'
 import Style from './Redirect.style'
 
@@ -14,7 +14,8 @@ import '../i18n'
 type Props = ScreenProps
 
 const Redirect = ({ componentId = '' }: Partial<Props>): JSX.Element => {
-  const isAuthenticated = false
+  // const isAuthenticated = false
+  const isAuthenticated = useSelector(authAuthenticatedSelector)
   const showSplash = useSelector(uiSplashShowSelector)
 
   // Hooks
@@ -26,27 +27,6 @@ const Redirect = ({ componentId = '' }: Partial<Props>): JSX.Element => {
   //     setIsFirstLaunch(false)
   //   }
   // }, [isFirstLaunch])
-
-  // // Screens redirect handler
-  // const handleRedirect = useCallback(() => {
-  //   if (showSplash) {
-  //     onNavigate(SplashScreen.name, {
-  //       push: { enabled: false },
-  //     })
-  //   } else {
-  //     if (!isFirstLaunch) {
-  //       if (isAuthenticated) {
-  //         if (isOnboardingVisited) {
-  //           Navigation.setRoot(appRoot)
-  //         } else {
-  //           onNavigate(OnBoardingScreen.name)
-  //         }
-  //       } else {
-  //         onNavigate(LoginScreen.name)
-  //       }
-  //     }
-  //   }
-  // }, [componentId, isAuthenticated, isFirstLaunch, showSplash])
 
   // Screens redirect handler
   const handleRedirect = useCallback(() => {

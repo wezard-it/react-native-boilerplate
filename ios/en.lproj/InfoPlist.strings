@@ -1,0 +1,25 @@
+/* 
+  InfoPlist.strings
+  basic
+
+  Created by Eric Wekouri on 02/03/23.
+  
+*/
+
+"CFBundleDisplayName" = "Basic";
+"CFBundleName" = "Basic";
+"NSCameraUsageDescription" = "Basic needs the camera access to take photos.";
+"NSLocationTemporaryUsageDescriptionDictionary" = "Basic needs your location to unlock all the primary features.";
+"NSLocationUsageDescription" = "Basic needs your location to unlock all the primary features.";
+"NSLocationWhenInUseUsageDescription" = "Basic needs your location to unlock all the primary features.";
+"NSMicrophoneUsageDescription" = "Basic needs your microphone access to record.";
+"NSPhotoLibraryAddUsageDescription" = "Basic needs your camera roll access to pick a photo from the device.";
+"NSPhotoLibraryUsageDescription" = "Basic needs your camera roll access to pick a photo from the device.";
+"NSContactsUsageDescription" = "Basic needs your location to unlock all the primary features.";
+"NSCalendarsUsageDescription" = "Our app does not request this permission or utilize this functionality but it is included in our info.plist since our app utilizes the react-native-permissions library, which references this permission in its code.";
+"NSBluetoothPeripheralUsageDescription" = "Our app does not request this permission or utilize this functionality but it is included in our info.plist since our app utilizes the react-native-permissions library, which references this permission in its code.";
+"NSAppleMusicUsageDescription" = "Basic needs your location to unlock all the primary features.";
+"NSMotionUsageDescription" = "Our app does not request this permission or utilize this functionality but it is included in our info.plist since our app utilizes the react-native-permissions library, which references this permission in its code.";
+"NSSpeechRecognitionUsageDescription" = "Our app does not request this permission or utilize this functionality but it is included in our info.plist since our app utilizes the react-native-permissions library, which references this permission in its code.";
+"NSBluetoothAlwaysUsageDescription" = "Our app does not request this permission or utilize this functionality but it is included in our info.plist since our app utilizes the react-native-permissions library, which references this permission in its code.";
+"NSUserTrackingUsageDescription" = "This identifier will be used to deliver personalized ads to you.";

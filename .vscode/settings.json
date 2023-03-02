@@ -1,5 +1,11 @@
 {
   "editor.formatOnSave": false,
+  "editor.tabCompletion": "on",
+  "editor.quickSuggestions": {
+    "comments": "on",
+    "strings": "on",
+    "other": "on"
+  },
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   }

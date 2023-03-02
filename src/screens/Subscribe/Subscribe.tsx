@@ -2,12 +2,12 @@ import React from 'react'
 import { SafeAreaView, View, Text, Pressable } from 'react-native'
 import { useTranslation } from 'react-i18next'
 import { Navigation } from 'react-native-navigation'
-import { ScreenProps } from 'types'
 import Style from './Subscribe.style'
 
-// Language variable
+// Language
 const base = 'subscribe_screen'
 
+// Interfaces
 type Props = ScreenProps
 
 const Subscribe = ({ componentId = '' }: Partial<Props>): JSX.Element => {

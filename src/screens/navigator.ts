@@ -1,7 +1,6 @@
 import NavigationWrapper from 'components/hocs/NavigationWrapper/NavigationWrapper'
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler'
 import { Navigation } from 'react-native-navigation'
-import { withNavigationProvider } from 'react-native-navigation-hooks'
 import { IModuleStore } from 'redux-dynamic-modules'
 import { Persistor } from 'redux-persist'
 import { MainState } from 'store/types'
@@ -54,54 +53,6 @@ export const OnBoardingScreen = {
   name: 'basic.OnBoarding',
 }
 
-export const registerScreens = (store: IModuleStore<MainState>, persistor: Persistor) => {
-  Navigation.registerComponent(
-    SplashScreen.name,
-    () =>
-      gestureHandlerRootHOC(withNavigationProvider(NavigationWrapper(Splash, store, persistor))),
-    () => Splash,
-  )
-  Navigation.registerComponent(
-    RedirectScreen.name,
-    () =>
-      gestureHandlerRootHOC(withNavigationProvider(NavigationWrapper(Redirect, store, persistor))),
-    () => Redirect,
-  )
-  Navigation.registerComponent(
-    LoginScreen.name,
-    () => gestureHandlerRootHOC(withNavigationProvider(NavigationWrapper(Login, store, persistor))),
-    () => Login,
-  )
-  Navigation.registerComponent(
-    SubscribeScreen.name,
-    () =>
-      gestureHandlerRootHOC(withNavigationProvider(NavigationWrapper(Subscribe, store, persistor))),
-    () => Subscribe,
-  )
-  Navigation.registerComponent(
-    ForgotPasswordScreen.name,
-    () =>
-      gestureHandlerRootHOC(
-        withNavigationProvider(NavigationWrapper(ForgotPassword, store, persistor)),
-      ),
-    () => ForgotPassword,
-  )
-  Navigation.registerComponent(
-    OnBoardingScreen.name,
-    () =>
-      gestureHandlerRootHOC(
-        withNavigationProvider(NavigationWrapper(OnBoarding, store, persistor)),
-      ),
-    () => OnBoarding,
-  )
-  Navigation.registerComponent(
-    HomepageScreen.name,
-    () =>
-      gestureHandlerRootHOC(withNavigationProvider(NavigationWrapper(Homepage, store, persistor))),
-    () => Homepage,
-  )
-}
-
 // Global options
 Navigation.setDefaultOptions({
   layout: {
@@ -135,6 +86,45 @@ export const globalComponentOptions = {
   layout: {
     componentBackgroundColor: 'white',
   },
+}
+
+// Register screens
+export const registerScreens = (store: IModuleStore<MainState>, persistor: Persistor) => {
+  Navigation.registerComponent(
+    SplashScreen.name,
+    () => gestureHandlerRootHOC(NavigationWrapper(Splash, store, persistor)),
+    () => Splash,
+  )
+  Navigation.registerComponent(
+    RedirectScreen.name,
+    () => gestureHandlerRootHOC(NavigationWrapper(Redirect, store, persistor)),
+    () => Redirect,
+  )
+  Navigation.registerComponent(
+    LoginScreen.name,
+    () => gestureHandlerRootHOC(NavigationWrapper(Login, store, persistor)),
+    () => Login,
+  )
+  Navigation.registerComponent(
+    SubscribeScreen.name,
+    () => gestureHandlerRootHOC(NavigationWrapper(Subscribe, store, persistor)),
+    () => Subscribe,
+  )
+  Navigation.registerComponent(
+    ForgotPasswordScreen.name,
+    () => gestureHandlerRootHOC(NavigationWrapper(ForgotPassword, store, persistor)),
+    () => ForgotPassword,
+  )
+  Navigation.registerComponent(
+    OnBoardingScreen.name,
+    () => gestureHandlerRootHOC(NavigationWrapper(OnBoarding, store, persistor)),
+    () => OnBoarding,
+  )
+  Navigation.registerComponent(
+    HomepageScreen.name,
+    () => gestureHandlerRootHOC(NavigationWrapper(Homepage, store, persistor)),
+    () => Homepage,
+  )
 }
 
 // App Root
