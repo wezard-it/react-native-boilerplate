@@ -1,22 +1,31 @@
 import React from 'react'
 import { SafeAreaView, View, Text, Pressable } from 'react-native'
+import { useTheme } from 'hooks'
 import { useTranslation } from 'react-i18next'
 import { Navigation } from 'react-native-navigation'
-import { ScreenProps } from 'types'
+import { useDispatch } from 'react-redux'
+import { signIn } from 'store/modules/auth/auth.actions'
 import { SubscribeScreen, ForgotPasswordScreen } from '../navigator'
 import Style from './Login.style'
 
-// Language variable
+// Language
 const base = 'login_screen'
 
+// Interfaces
 type Props = ScreenProps
 
 const Login = ({ componentId = '' }: Partial<Props>): JSX.Element => {
   const { t } = useTranslation()
 
+  // Dispatch
+  const dispatch = useDispatch()
+
+  // Theme
+  const selectedTheme = useTheme(Style)
+
   // Methods
   const _onLoginPressed = () => {
-    // setAuth(true)
+    dispatch(signIn())
     console.log('login')
   }
 
@@ -43,20 +52,20 @@ const Login = ({ componentId = '' }: Partial<Props>): JSX.Element => {
   }
 
   return (
-    <SafeAreaView style={Style.safeArea}>
-      <View style={Style.container}>
-        <View style={Style.titleContainer}>
-          <Text style={Style.title}>{t(`${base}.title`)}</Text>
+    <SafeAreaView style={selectedTheme.safeArea}>
+      <View style={selectedTheme.container}>
+        <View style={selectedTheme.titleContainer}>
+          <Text style={selectedTheme.title}>{t(`${base}.title`)}</Text>
         </View>
-        <View style={Style.body}>
-          <Pressable style={Style.pressable} onPress={_onLoginPressed}>
-            <Text>{t(`${base}.home`)}</Text>
+        <View style={selectedTheme.body}>
+          <Pressable style={selectedTheme.pressable} onPress={_onLoginPressed}>
+            <Text style={selectedTheme.navigation}>{t(`${base}.home`)}</Text>
           </Pressable>
-          <Pressable style={Style.pressable} onPress={_onForgotPressed}>
-            <Text>{t(`${base}.forgot`)}</Text>
+          <Pressable style={selectedTheme.pressable} onPress={_onForgotPressed}>
+            <Text style={selectedTheme.navigation}>{t(`${base}.forgot`)}</Text>
           </Pressable>
-          <Pressable style={Style.pressable} onPress={_onSubscribePressed}>
-            <Text>{t(`${base}.subscribe`)}</Text>
+          <Pressable style={selectedTheme.pressable} onPress={_onSubscribePressed}>
+            <Text style={selectedTheme.navigation}>{t(`${base}.subscribe`)}</Text>
           </Pressable>
         </View>
       </View>

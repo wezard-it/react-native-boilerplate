@@ -1,6 +1,7 @@
 interface RootState {
   loading: boolean
   ui: UIState
+  auth: AuthState
 }
 
 interface INavigatePayload {
