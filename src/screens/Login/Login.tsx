@@ -1,5 +1,5 @@
 import React from 'react'
-import { SafeAreaView, View, Text, Pressable } from 'react-native'
+import { SafeAreaView, View, Text, Pressable, StatusBar } from 'react-native'
 import { useTheme } from 'hooks'
 import { useTranslation } from 'react-i18next'
 import { Navigation } from 'react-native-navigation'
@@ -53,6 +53,7 @@ const Login = ({ componentId = '' }: Partial<Props>): JSX.Element => {
 
   return (
     <SafeAreaView style={selectedTheme.safeArea}>
+      <StatusBar barStyle="dark-content" />
       <View style={selectedTheme.container}>
         <View style={selectedTheme.titleContainer}>
           <Text style={selectedTheme.title}>{t(`${base}.title`)}</Text>

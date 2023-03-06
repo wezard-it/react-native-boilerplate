@@ -1,10 +1,10 @@
-import { getEnvs } from 'utils/envs'
+import { getEnvs } from 'utils/env/envs'
 import Api from './api'
 import { handleError } from './utils/basic-sdk-error'
 
 const { API_URL, API_VERSION } = getEnvs()
 
-interface UtravelSDKProps {
+interface BasicSDKProps {
   apiUrl: string
   v: string
 }
@@ -14,7 +14,7 @@ class BasicSDK {
   private api?: Api
   private authData?: BasicAuthData
 
-  constructor({ apiUrl, v }: UtravelSDKProps) {
+  constructor({ apiUrl, v }: BasicSDKProps) {
     if (!BasicSDK.instance) {
       BasicSDK.instance = this
     }
@@ -47,6 +47,6 @@ class BasicSDK {
   }
 }
 
-const utravelSDK = new BasicSDK({ apiUrl: API_URL, v: API_VERSION })
+const basicSDK = new BasicSDK({ apiUrl: API_URL, v: API_VERSION })
 
-export default utravelSDK
+export default basicSDK
