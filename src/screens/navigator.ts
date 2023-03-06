@@ -5,7 +5,7 @@ import { IModuleStore } from 'redux-dynamic-modules'
 import { Persistor } from 'redux-persist'
 import { MainState } from 'store/types'
 
-// Import Screens
+// Screens
 import ForgotPassword from './ForgotPassword/ForgotPassword'
 import Homepage from './Homepage/Homepage'
 import Login from './Login/Login'
@@ -14,7 +14,7 @@ import Redirect from './Redirect/Redirect'
 import Splash from './SplashScreen/SplashScreen'
 import Subscribe from './Subscribe/Subscribe'
 
-// App stack
+// Stack
 export const BottomTabs = {
   id: 'BOTTOM_TABS',
 }
@@ -53,7 +53,7 @@ export const OnBoardingScreen = {
   name: 'basic.OnBoarding',
 }
 
-// Global options
+// Options
 Navigation.setDefaultOptions({
   layout: {
     orientation: ['portrait'],
