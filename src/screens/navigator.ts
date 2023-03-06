@@ -1,5 +1,5 @@
+import gestureHandlerRootHOC from 'components/hocs/GestureHandlerRoot/GestureHandlerRoot'
 import NavigationWrapper from 'components/hocs/NavigationWrapper/NavigationWrapper'
-import { gestureHandlerRootHOC } from 'react-native-gesture-handler'
 import { Navigation } from 'react-native-navigation'
 import { IModuleStore } from 'redux-dynamic-modules'
 import { Persistor } from 'redux-persist'
