@@ -1,7 +1,8 @@
 # Basic Project Structure
 
 ## How to create a new project from this one
-
+- remove remote ``git remote remove origin``
+- remove the previous git history: ``rm -rf .git/``
 - Use react-native-rename ``npx react-native-rename <newName> -b <bundleIdentifier> ``
 - Android - search all com.basic and change it with the new namespace
 - Android - change folders name inside android/app/src/main/java
@@ -36,6 +37,12 @@
   - redux: methods that will be used in redux
   - validation: methods related to form validation
   - sdk: centralized api requests handler (should be named ``project-sdk``)
+
+## Code quality covered with:
+
+- Eslint
+- Husky
+- Prettier
 
 ## Committing recap
 
