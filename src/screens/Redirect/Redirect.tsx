@@ -3,8 +3,8 @@ import React, { useCallback, useEffect, Suspense } from 'react'
 import { View, Text } from 'react-native'
 import { Navigation } from 'react-native-navigation'
 import { useSelector } from 'react-redux'
-import { authAuthenticatedSelector } from 'store/modules/auth/auth.selectors'
-import { uiSplashShowSelector } from 'store/modules/ui/ui.selectors'
+import { selectAuthIsAuthenticated } from 'store/modules/auth/auth.selectors'
+import { selectUISplashVisible } from 'store/modules/ui/ui.selectors'
 import { appRoot, LoginScreen, SplashScreen } from '../navigator'
 import Style from './Redirect.style'
 
@@ -15,8 +15,8 @@ type Props = ScreenProps
 
 const Redirect = ({ componentId = '' }: Partial<Props>): JSX.Element => {
   // const isAuthenticated = false
-  const isAuthenticated = useSelector(authAuthenticatedSelector)
-  const showSplash = useSelector(uiSplashShowSelector)
+  const isAuthenticated = useSelector(selectAuthIsAuthenticated)
+  const showSplash = useSelector(selectUISplashVisible)
 
   // Hooks
   // useEffect(() => {

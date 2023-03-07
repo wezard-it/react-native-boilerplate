@@ -1,12 +1,12 @@
 // Direct access to variables from screens
-export const uiSplashShowSelector = (state: RootState): boolean => {
-  return state.ui.splash_show
+export const selectUISplashVisible = (state: RootState): boolean => {
+  return state.ui.splashVisible
 }
 
-export const uiNavabarIndexSelector = (state: RootState): number => {
-  return state.ui.navbar_index
+export const selectUINavbarIndex = (state: RootState): number => {
+  return state.ui.navbarIndex
 }
 
-export const uiNavabarHiddenSelector = (state: RootState): boolean | undefined => {
-  return state.ui.navbar_hidden
+export const selectUINavbarVisible = (state: RootState): boolean | undefined => {
+  return state.ui.navbarVisible
 }
