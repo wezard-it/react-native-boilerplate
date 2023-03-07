@@ -29,7 +29,7 @@
     "rootDirs": ["src", "stories"],
     "types": ["jest"],
   },
-  "include": ["./src/**/*", "**/*.test.ts"],
+  "include": ["./src/**/*", "**/*.test.ts", "global.d.ts"],
   "exclude": [
     "node_modules",
     "babel.config.js",
