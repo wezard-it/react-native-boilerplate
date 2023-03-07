@@ -1,9 +1,9 @@
 export const STATE_KEY = 'ui'
 
 export const initialState: UIState = {
-  splash_show: true,
-  navbar_index: 0,
-  navbar_hidden: false,
+  splashVisible: true,
+  navbarIndex: 0,
+  navbarVisible: true,
 }
 
 export const UIActions = {
