@@ -32,6 +32,7 @@
 - container: containers for screens inside a tab view.
 - providers: app themes.
 - screens: main screens.
+- store: redux store modules.
 - utils:
   - helpers: methods that will be used across the app
   - redux: methods that will be used in redux
