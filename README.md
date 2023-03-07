@@ -6,6 +6,7 @@
 - Use react-native-rename ``npx react-native-rename <newName> -b <bundleIdentifier> ``
 - Android - search all com.basic and change it with the new namespace
 - Android - change folders name inside android/app/src/main/java
+- Set up permissions ``npx react-native setup-ios-permissions``
 
 
 ## Features:
