@@ -8,25 +8,15 @@ import { selectUISplashVisible } from 'store/modules/ui/ui.selectors'
 import { appRoot, LoginScreen, SplashScreen } from '../navigator'
 import Style from './Redirect.style'
 
-// Global variables
+// Global
 import '../i18n'
 
+// Interfaces
 type Props = ScreenProps
 
 const Redirect = ({ componentId = '' }: Partial<Props>): JSX.Element => {
-  // const isAuthenticated = false
   const isAuthenticated = useSelector(selectAuthIsAuthenticated)
   const showSplash = useSelector(selectUISplashVisible)
-
-  // Hooks
-  // useEffect(() => {
-  //   if (isFirstLaunch) {
-  //     if (!isOnboardingVisited) {
-  //       setAuth(false)
-  //     }
-  //     setIsFirstLaunch(false)
-  //   }
-  // }, [isFirstLaunch])
 
   // Screens redirect handler
   const handleRedirect = useCallback(() => {
