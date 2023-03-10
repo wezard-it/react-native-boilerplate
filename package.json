@@ -22,8 +22,18 @@
     "watchman:clean": "watchman watch-del-all",
     "postinstall": "patch-package"
   },
-  "author": "Wekouri Eric",
+  "keywords": [
+    "react-native",
+    "ios",
+    "android"
+  ],
+  "repository": "https://github.com/wezard-it/react-native-boilerplate.git",
+  "author": "Westudents Tech Team <tech@westudents.it> (https://developers.westudents.it)",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wezard-it/react-native-boilerplate/issues"
+  },
+  "homepage": "https://github.com/wezard-it/react-native-boilerplate#readme",
   "reactNativePermissionsIOS": [
     "Camera",
     "LocationAccuracy",
