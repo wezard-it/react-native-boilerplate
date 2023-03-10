@@ -25,7 +25,9 @@
   "keywords": [
     "react-native",
     "ios",
-    "android"
+    "android",
+    "boilerplate",
+    "redux"
   ],
   "repository": "https://github.com/wezard-it/react-native-boilerplate.git",
   "author": "Westudents Tech Team <tech@westudents.it> (https://developers.westudents.it)",
