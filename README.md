@@ -1,6 +1,8 @@
 # Basic Project Structure
 
 ## How to create a new project from this one
+- create a folder with the new project name
+- clone repo ``git clone https://github.com/wezard-it/react-native-boilerplate.git .`` 
 - remove remote ``git remote remove origin``
 - remove the previous git history: ``rm -rf .git/``
 - Use react-native-rename ``npx react-native-rename <newName> -b <bundleIdentifier> ``
@@ -10,7 +12,6 @@
 
 
 ## Features:
-
 - Navigation init
 - Storage with redux
 - Basic folder structure
@@ -19,7 +20,6 @@
 - Utils for bottomsheet, camera, device, font, screen navigation
 
 ## src structure
-
 - assets: all folders related to UI, like fonts, locales, pngs, svgs and lottie files
 - components subdivided in:
   - atomics:
@@ -41,13 +41,11 @@
   - sdk: centralized api requests handler (should be named ``project-sdk``)
 
 ## Code quality covered with:
-
 - Eslint
 - Husky
 - Prettier
 
 ## Committing recap
-
 - fix: bug fixes, e.g. fix crash due to deprecated method.
 - feat: new features, e.g. add new method to the module.
 - refactor: code refactor, e.g. migrate from class components to hooks.
