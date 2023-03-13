@@ -3,12 +3,13 @@
 ## How to create a new project from this one
 - create a folder with the new project name
 - clone repo ``git clone https://github.com/wezard-it/react-native-boilerplate.git .`` 
-- remove remote ``git remote remove origin``
 - remove the previous git history: ``rm -rf .git/``
+- init git ``git init``
+- commit changes ``git add .`` then ``git commit -m "feat: init project"``
 - Use react-native-rename ``npx react-native-rename <newName> -b <bundleIdentifier> ``
 - Android - search all com.basic and change it with the new namespace
 - Android - change folders name inside android/app/src/main/java
-- Set up permissions ``npx react-native setup-ios-permissions``
+- Set up permissions ``npx react-native setup-ios-permissions`` or remove package if not needed
 
 
 ## Features:
