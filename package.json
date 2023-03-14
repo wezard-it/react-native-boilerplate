@@ -30,7 +30,7 @@
     "redux"
   ],
   "repository": "https://github.com/wezard-it/react-native-boilerplate.git",
-  "author": "Westudents Tech Team <tech@westudents.it> (https://developers.westudents.it)",
+  "author": "Wekouri Eric <eric.wekouri@gmail.com> (https://developers.westudents.it)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/wezard-it/react-native-boilerplate/issues"
@@ -50,6 +50,7 @@
     "@react-native-camera-roll/camera-roll": "^5.2.3",
     "@react-native-community/hooks": "^2.8.1",
     "@reduxjs/toolkit": "^1.9.2",
+    "@wezard/react-native-ylem": "^0.2.1",
     "axios": "^1.2.1",
     "axios-case-converter": "^0.11.1",
     "formik": "^2.2.9",
