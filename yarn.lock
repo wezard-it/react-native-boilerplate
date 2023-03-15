@@ -1842,10 +1842,10 @@
     "@typescript-eslint/types" "5.54.0"
     eslint-visitor-keys "^3.3.0"
 
-"@wezard/react-native-ylem@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@wezard/react-native-ylem/-/react-native-ylem-0.2.1.tgz#d8029fd4138a7687616d13ca389fd4b52388d58d"
-  integrity sha512-5vj0dv4Ym0wWWjspfXlz3sGsCp12xJJLVQgUpOWLiuchLv1VhUkvrwGytojbxKv188o9aPqRAGHQbw5biO50Iw==
+"@wezard/react-native-ylem@^0.9.0":
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/@wezard/react-native-ylem/-/react-native-ylem-0.9.0.tgz#e913455899583dd028acc4c65d13bb63be80a5e2"
+  integrity sha512-lBLn8NEYphubLQa1jyoZGfthigOdquE7PmKTyT5+Qm0qIj95iHELlwn5B7IGRljpqcqCyaAmTcIzFVmYoZRT9Q==
 
 "@yarnpkg/lockfile@^1.1.0":
   version "1.1.0"

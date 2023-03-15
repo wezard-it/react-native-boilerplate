@@ -50,7 +50,7 @@
     "@react-native-camera-roll/camera-roll": "^5.2.3",
     "@react-native-community/hooks": "^2.8.1",
     "@reduxjs/toolkit": "^1.9.2",
-    "@wezard/react-native-ylem": "^0.2.1",
+    "@wezard/react-native-ylem": "^0.9.0",
     "axios": "^1.2.1",
     "axios-case-converter": "^0.11.1",
     "formik": "^2.2.9",
