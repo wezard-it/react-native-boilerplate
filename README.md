@@ -52,10 +52,15 @@
 - gorhom/react-native-bottom-sheet: https://gorhom.github.io/react-native-bottom-sheet/
 
 ## Committing recap
-- fix: bug fixes, e.g. fix crash due to deprecated method.
+- build
+- ci: ci/cd.
 - feat: new features, e.g. add new method to the module.
+- fix: bug fixes, e.g. fix crash due to deprecated method.
 - refactor: code refactor, e.g. migrate from class components to hooks.
 - docs: changes into documentation, e.g. add usage example for the module..
 - test: adding or updating tests, eg add integration tests using detox.
 - chore: tooling changes, e.g. change CI config.
 - wip: work in progress, e.g. working on a feature but not finished yet.
+- perf: performance improvements, e.g. introducing useMemo/useCallback.
+- revert: revert commit.
+- style: changes on style.
