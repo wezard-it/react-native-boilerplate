@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect, useMemo } from 'react'
-import light from 'providers/theme/lightTheme'
+import light from 'providers/theme'
 
 function usePickTheme(type: 'light' = 'light'): Theme {
   const [theme, setTheme] = useState<Theme>(light)
