@@ -20,7 +20,7 @@
     "bump-minor": "npm version minor --no-git-tag-version && bundle exec fastlane bump",
     "bump-major": "npm version major --no-git-tag-version && bundle exec fastlane bump",
     "watchman:clean": "watchman watch-del-all",
-    "postinstall": "patch-package"
+    "postinstall": "npx react-native setup-ios-permissions && patch-package"
   },
   "keywords": [
     "react-native",
