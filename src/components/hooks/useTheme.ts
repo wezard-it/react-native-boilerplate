@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+// @refresh reset
 import { useState, useEffect, useMemo } from 'react'
 import light from 'providers/theme'
 
@@ -15,6 +15,7 @@ function usePickTheme(type: 'light' = 'light'): Theme {
   return theme
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function useTheme(fn: any, type: 'light' = 'light') {
   const theme = usePickTheme(type)
   const SelectedTheme = useMemo(() => fn(theme), [fn, theme])
