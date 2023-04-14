@@ -20,7 +20,8 @@
     "bump-minor": "npm version minor --no-git-tag-version && bundle exec fastlane bump",
     "bump-major": "npm version major --no-git-tag-version && bundle exec fastlane bump",
     "watchman:clean": "watchman watch-del-all",
-    "postinstall": "npx react-native setup-ios-permissions && patch-package"
+    "postinstall": "npx react-native setup-ios-permissions && patch-package",
+    "pods": "npx pod-install"
   },
   "keywords": [
     "react-native",
@@ -49,6 +50,7 @@
     "@react-native-async-storage/async-storage": "^1.17.11",
     "@react-native-camera-roll/camera-roll": "^5.2.3",
     "@react-native-community/hooks": "^2.8.1",
+    "@react-native-community/netinfo": "^9.3.9",
     "@reduxjs/toolkit": "^1.9.2",
     "@wezard/react-native-ylem": "^0.10.3",
     "axios": "^1.2.1",

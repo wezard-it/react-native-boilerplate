@@ -6,7 +6,8 @@ import persistCombineReducers from 'redux-persist/es/persistCombineReducers'
 import concatenateReducers from '../utils/redux/concatenate-reducers'
 import getActionsEmitterExtension from './extensions/actions-emitter'
 import getErrorHandlerExtension from './extensions/error-handler'
-import { getAuthModule, getRootModule, getUIModule } from './modules'
+import getNetworkHandlerExtention from './extensions/network-handler'
+import { getAuthModule, getNetworkModule, getRootModule, getUIModule } from './modules'
 import { MainState } from './types'
 
 const sagaContext = {}
@@ -17,8 +18,9 @@ const store: IModuleStore<MainState> = createStore(
     enhancers: [],
     extensions: [
       getSagaExtension(sagaContext),
-      getActionsEmitterExtension(),
       getErrorHandlerExtension(),
+      getNetworkHandlerExtention(),
+      getActionsEmitterExtension(),
     ],
     advancedCombineReducers: (allReducers) => {
       const { root, ...reducers } = allReducers as unknown as {
@@ -31,6 +33,7 @@ const store: IModuleStore<MainState> = createStore(
     },
   },
   getRootModule(),
+  getNetworkModule(),
   getUIModule(),
   getAuthModule(),
 )
