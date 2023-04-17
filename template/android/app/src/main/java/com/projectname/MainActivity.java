@@ -1,4 +1,4 @@
-package com.basic;
+package com.projectname;
 
 import com.reactnativenavigation.NavigationActivity;
 import com.facebook.react.ReactActivityDelegate;

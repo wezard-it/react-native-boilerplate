@@ -5,7 +5,7 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 platform :ios, '13'
 install! 'cocoapods', :deterministic_uuids => false
 
-target 'basic' do
+target 'ProjectName' do
   config = use_native_modules!
   use_frameworks! :linkage => :static
 
@@ -30,7 +30,7 @@ target 'basic' do
     #:app_path => "#{Pod::Config.instance.installation_root}/.."
   )
   
-  target 'basicTests' do
+  target 'ProjectNameTests' do
     inherit! :complete
     # Pods for testing
   end
