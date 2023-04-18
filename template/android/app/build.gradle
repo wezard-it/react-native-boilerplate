@@ -93,7 +93,6 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0.0"
-        missingDimensionStrategy "RNN.reactNativeVersion", "reactNative71"
     }
 
     splits {

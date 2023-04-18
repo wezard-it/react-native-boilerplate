@@ -1,0 +1,3 @@
+type FeedStackParamList = {
+  Feed: undefined
+}

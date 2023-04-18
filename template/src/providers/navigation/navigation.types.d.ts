@@ -1,0 +1,3 @@
+type HomeStackParamList = {
+  Home: undefined
+}

@@ -1,8 +1,8 @@
 {
-    "name": "@wezard/react-native-wix-navigation-template",
+    "name": "@wezard/react-native-react-navigation-template",
     "version": "0.0.2",
-    "description": "Wezard React Native Template with Wix Navigation",
-    "repository": "git@github.com:wezard-it/react-native-boilerplate.git",
-    "author": "Wekouri Eric <eric.wekouri@gmail.com> (https://developers.westudents.it)",
+    "description": "Wezard React Native Template with React Navigation",
+    "repository": "git@github.com:wezard-it/react-native-boilerplate-react-navigation.git",
+    "author": "Rocco Luigi Scarcella <rolud.dev@gmail.com> (https://developers.westudents.it)",
     "license": "MIT"
 }

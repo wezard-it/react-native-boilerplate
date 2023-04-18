@@ -1,12 +1,8 @@
-import { LogBox } from 'react-native'
-import { Navigation } from 'react-native-navigation'
+import { AppRegistry, LogBox } from 'react-native'
+import { name as appName } from './app.json'
 import { ignore } from './dev'
-import { authRoot, registerScreens } from './src/screens/navigator'
-import store, { persistor } from './src/store'
+import App from './src/App'
 
 LogBox.ignoreLogs(ignore)
 
-Navigation.events().registerAppLaunchedListener(async () => {
-  registerScreens(store, persistor)
-  Navigation.setRoot(authRoot)
-})
+AppRegistry.registerComponent(appName, () => App)

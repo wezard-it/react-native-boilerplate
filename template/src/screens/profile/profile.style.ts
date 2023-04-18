@@ -7,6 +7,7 @@ const Style = StyleSheet.create({
   titleContainer: { paddingHorizontal: 10 },
   title: { fontFamily: 'Avenir', fontSize: 28, fontWeight: '700' },
   body: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+  logout: { paddingVertical: 20 },
 })
 
 export default Style
