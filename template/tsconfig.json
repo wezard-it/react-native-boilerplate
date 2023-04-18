@@ -1,4 +1,20 @@
 {
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "assets": ["./assets"],
+      "components": ["./components"],
+      "containers": ["./containers"],
+      "hooks": ["./components/hooks"],
+      "providers": ["./providers"],
+      "screens": ["./screens"],
+      "store": ["./store"],
+      "types": ["./types"],
+      "utils": ["./utils"]
+    },
+    "rootDirs": ["src", "stories"],
+    "types": ["jest"],
+  },
   "extends": "@tsconfig/react-native/tsconfig.json",
   "include": ["./src/**/*", "**/*.test.ts", "global.d.ts"],
   "exclude": [
