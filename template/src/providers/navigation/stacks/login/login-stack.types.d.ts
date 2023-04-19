@@ -1,0 +1,3 @@
+type LoginStackParamList = {
+  Login: undefined
+}
