@@ -1,6 +1,6 @@
 {
     "name": "@wezard/react-native-react-navigation-template",
-    "version": "0.0.2",
+    "version": "0.0.1",
     "description": "Wezard React Native Template with React Navigation",
     "repository": "git@github.com:wezard-it/react-native-boilerplate-react-navigation.git",
     "author": "Rocco Luigi Scarcella <rolud.dev@gmail.com> (https://developers.westudents.it)",
