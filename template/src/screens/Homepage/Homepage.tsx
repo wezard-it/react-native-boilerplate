@@ -1,12 +1,10 @@
 import React from 'react'
 import { SafeAreaView, View, Text, Pressable } from 'react-native'
-import { useStoreListener } from 'hooks'
+import { useAuth } from 'hooks'
+import { observer } from 'mobx-react-lite'
 import { useTranslation } from 'react-i18next'
 import { Navigation } from 'react-native-navigation'
-import { useDispatch } from 'react-redux'
 import { authRoot } from 'screens/navigator'
-import { logout } from 'store/modules/auth/auth.actions'
-import { AuthActions } from 'store/modules/auth/auth.consts'
 import Style from './Homepage.style'
 
 // Language
@@ -16,23 +14,15 @@ const base = 'homepage_screen'
 type Props = ScreenProps
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const Homepage = ({ componentId = '' }: Partial<Props>): JSX.Element => {
+const Homepage = observer(({ componentId = '' }: Partial<Props>): JSX.Element => {
   const { t } = useTranslation()
-
-  // Dispatch
-  const dispatch = useDispatch()
+  const { setIsAuthenticated } = useAuth()
 
   // Methods
   const _onLogoutPressed = () => {
-    dispatch(logout())
+    setIsAuthenticated(false)
+    Navigation.setRoot(authRoot)
   }
-
-  // Store listener
-  useStoreListener({
-    [AuthActions.SIGN_OUT_SUCCESS]: () => {
-      Navigation.setRoot(authRoot)
-    },
-  })
 
   return (
     <SafeAreaView style={Style.safeArea}>
@@ -48,6 +38,6 @@ const Homepage = ({ componentId = '' }: Partial<Props>): JSX.Element => {
       </View>
     </SafeAreaView>
   )
-}
+})
 
 export default Homepage

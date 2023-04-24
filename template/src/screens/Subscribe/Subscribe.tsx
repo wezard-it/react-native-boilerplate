@@ -1,5 +1,6 @@
 import React from 'react'
 import { SafeAreaView, View, Text, Pressable } from 'react-native'
+import { observer } from 'mobx-react-lite'
 import { useTranslation } from 'react-i18next'
 import { Navigation } from 'react-native-navigation'
 import Style from './Subscribe.style'
@@ -10,7 +11,7 @@ const base = 'subscribe_screen'
 // Interfaces
 type Props = ScreenProps
 
-const Subscribe = ({ componentId = '' }: Partial<Props>): JSX.Element => {
+const Subscribe = observer(({ componentId = '' }: Partial<Props>): JSX.Element => {
   const { t } = useTranslation()
 
   // Methods
@@ -32,6 +33,6 @@ const Subscribe = ({ componentId = '' }: Partial<Props>): JSX.Element => {
       </Pressable>
     </SafeAreaView>
   )
-}
+})
 
 export default Subscribe

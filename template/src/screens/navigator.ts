@@ -1,9 +1,5 @@
 import gestureHandlerRootHOC from 'components/hocs/GestureHandlerRoot/GestureHandlerRoot'
-import NavigationWrapper from 'components/hocs/NavigationWrapper/NavigationWrapper'
 import { Navigation } from 'react-native-navigation'
-import { IModuleStore } from 'redux-dynamic-modules'
-import { Persistor } from 'redux-persist'
-import { MainState } from 'store/types'
 
 // Screens
 import ForgotPassword from './ForgotPassword/ForgotPassword'
@@ -89,40 +85,40 @@ export const globalComponentOptions = {
 }
 
 // Register screens
-export const registerScreens = (store: IModuleStore<MainState>, persistor: Persistor) => {
+export const registerScreens = () => {
   Navigation.registerComponent(
     SplashScreen.name,
-    () => gestureHandlerRootHOC(NavigationWrapper(Splash, store, persistor)),
+    () => gestureHandlerRootHOC(Splash),
     () => Splash,
   )
   Navigation.registerComponent(
     RedirectScreen.name,
-    () => gestureHandlerRootHOC(NavigationWrapper(Redirect, store, persistor)),
+    () => gestureHandlerRootHOC(Redirect),
     () => Redirect,
   )
   Navigation.registerComponent(
     LoginScreen.name,
-    () => gestureHandlerRootHOC(NavigationWrapper(Login, store, persistor)),
+    () => gestureHandlerRootHOC(Login),
     () => Login,
   )
   Navigation.registerComponent(
     SubscribeScreen.name,
-    () => gestureHandlerRootHOC(NavigationWrapper(Subscribe, store, persistor)),
+    () => gestureHandlerRootHOC(Subscribe),
     () => Subscribe,
   )
   Navigation.registerComponent(
     ForgotPasswordScreen.name,
-    () => gestureHandlerRootHOC(NavigationWrapper(ForgotPassword, store, persistor)),
+    () => gestureHandlerRootHOC(ForgotPassword),
     () => ForgotPassword,
   )
   Navigation.registerComponent(
     OnBoardingScreen.name,
-    () => gestureHandlerRootHOC(NavigationWrapper(OnBoarding, store, persistor)),
+    () => gestureHandlerRootHOC(OnBoarding),
     () => OnBoarding,
   )
   Navigation.registerComponent(
     HomepageScreen.name,
-    () => gestureHandlerRootHOC(NavigationWrapper(Homepage, store, persistor)),
+    () => gestureHandlerRootHOC(Homepage),
     () => Homepage,
   )
 }

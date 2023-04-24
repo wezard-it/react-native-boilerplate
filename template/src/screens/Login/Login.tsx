@@ -1,10 +1,9 @@
 import React from 'react'
 import { SafeAreaView, View, Text, Pressable, StatusBar } from 'react-native'
-import { useTheme } from 'hooks'
+import { useAuth, useTheme } from 'hooks'
+import { observer } from 'mobx-react-lite'
 import { useTranslation } from 'react-i18next'
 import { Navigation } from 'react-native-navigation'
-import { useDispatch } from 'react-redux'
-import { signIn } from 'store/modules/auth/auth.actions'
 import { SubscribeScreen, ForgotPasswordScreen } from '../navigator'
 import Style from './Login.style'
 
@@ -14,18 +13,16 @@ const base = 'login_screen'
 // Interfaces
 type Props = ScreenProps
 
-const Login = ({ componentId = '' }: Partial<Props>): JSX.Element => {
+const Login = observer(({ componentId = '' }: Partial<Props>): JSX.Element => {
   const { t } = useTranslation()
-
-  // Dispatch
-  const dispatch = useDispatch()
+  const { setIsAuthenticated } = useAuth()
 
   // Theme
   const selectedTheme = useTheme(Style)
 
   // Methods
   const _onLoginPressed = () => {
-    dispatch(signIn())
+    setIsAuthenticated(true)
     console.log('login')
   }
 
@@ -72,6 +69,6 @@ const Login = ({ componentId = '' }: Partial<Props>): JSX.Element => {
       </View>
     </SafeAreaView>
   )
-}
+})
 
 export default Login

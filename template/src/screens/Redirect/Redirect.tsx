@@ -1,35 +1,57 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, { useCallback, useEffect, Suspense } from 'react'
+import React, { useCallback, useEffect, Suspense, useState } from 'react'
 import { View, Text } from 'react-native'
+import { useAuth, useUI } from 'hooks'
+import { observer } from 'mobx-react-lite'
 import { Navigation } from 'react-native-navigation'
-import { useSelector } from 'react-redux'
-import { selectAuthIsAuthenticated } from 'store/modules/auth/auth.selectors'
-import { selectUISplashVisible } from 'store/modules/ui/ui.selectors'
-import { appRoot, LoginScreen, SplashScreen } from '../navigator'
+import { appRoot, LoginScreen, OnBoardingScreen, SplashScreen } from '../navigator'
 import Style from './Redirect.style'
 
-// Global
+// Global variables
 import '../i18n'
 
 // Interfaces
 type Props = ScreenProps
 
-const Redirect = ({ componentId = '' }: Partial<Props>): JSX.Element => {
-  const isAuthenticated = useSelector(selectAuthIsAuthenticated)
-  const showSplash = useSelector(selectUISplashVisible)
+const Redirect = observer(({ componentId = '' }: Partial<Props>): JSX.Element => {
+  // State variables
+  const [isFirstLaunch, setIsFirstLaunch] = useState(true)
+
+  // Auth variables
+  const { isAuthenticated, setIsAuthenticated } = useAuth()
+
+  // UI variables
+  const { showSplash, isOnboardingVisited } = useUI()
+
+  // Hooks
+  useEffect(() => {
+    if (isFirstLaunch) {
+      if (!isOnboardingVisited) {
+        setIsAuthenticated(false)
+      }
+      setIsFirstLaunch(false)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isFirstLaunch])
 
   // Screens redirect handler
   const handleRedirect = useCallback(() => {
     if (showSplash) {
       onNavigate(SplashScreen.name, { push: { enabled: false } })
     } else {
-      if (isAuthenticated) {
-        Navigation.setRoot(appRoot)
-      } else {
-        onNavigate(LoginScreen.name)
+      if (!isFirstLaunch) {
+        if (isAuthenticated) {
+          if (isOnboardingVisited) {
+            Navigation.setRoot(appRoot)
+          } else {
+            onNavigate(OnBoardingScreen.name)
+          }
+        } else {
+          onNavigate(LoginScreen.name)
+        }
       }
     }
-  }, [componentId, isAuthenticated, showSplash])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isAuthenticated, isFirstLaunch, isOnboardingVisited, showSplash])
 
   useEffect(() => {
     handleRedirect()
@@ -67,6 +89,6 @@ const Redirect = ({ componentId = '' }: Partial<Props>): JSX.Element => {
       <View style={Style.boot} />
     </Suspense>
   )
-}
+})
 
 export default Redirect
