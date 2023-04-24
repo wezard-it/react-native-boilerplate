@@ -8,7 +8,7 @@
 </div>
 
 
-This repo container Wezard React Native template with Wix Navigation navigation.
+This repo container Wezard React Native template with Wix Navigation navigation and Mobx as state manager.
 
 ## How to use
 
