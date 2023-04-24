@@ -34,7 +34,7 @@ const reducer = createReducer<AuthState>(initialState, (builder) => {
     })
 })
 
-export const reducerMap = getTypedReducerMap<UIState>({
+export const reducerMap = getTypedReducerMap<AuthState>({
   [STATE_KEY]: persistReducer(
     {
       key: STATE_KEY,
