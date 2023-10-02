@@ -1,0 +1,113 @@
+ANDROID_PROJECT_DIR = './android'
+ANDROID_APP_PROJECT_DIR = './android/app'
+ANDROID_APP_GRADLE = './android/app/build.gradle'
+
+IOS_PROJECT_DIR = './ios/cantine.xcodeproj'
+
+lane :get_release_notes do |options|
+    if File.exists?("release_notes")
+        File.open("release_notes").read
+    else
+        ""
+    end
+end
+
+
+platform :android do
+   
+    lane :bump do |options|
+        if !['patch', 'minor', 'major', 'build'].include?(options[:type])
+            raise "Bump type must be passed: fastlane android type:<bump type>"
+        end
+
+        if options[:type] != 'build'
+            increment_version_name(gradle_file_path: ENV['ANDROID_APP_GRADLE'], bump_type: options[:type])
+        else
+            increment_version_code(gradle_file_path: ENV['ANDROID_APP_GRADLE'])
+        end
+        
+        version_name = android_get_version_name(gradle_file: ENV['ANDROID_APP_GRADLE'])
+        version_code = android_get_version_code(gradle_file: ENV['ANDROID_APP_GRADLE'])
+    end
+
+    lane :appdistribution do |options| 
+        gradle(task: 'clean', project_dir: ENV['ANDROID_PROJECT_DIR'])
+        gradle(task: 'assemble', build_type: 'Release', project_dir: ENV['ANDROID_PROJECT_DIR'])
+
+        release_notes = get_release_notes()
+
+        groups = options[:type] == "internal" ? ENV['FIREBASE_ANDROID_TESTER_GROUPS_INTERNAL'] : ENV['FIREBASE_ANDROID_TESTER_GROUPS']
+
+        firebase_app_distribution(
+            app: ENV['FIREBASE_ANDROID_APP_ID'],
+            apk_path: ENV['ANDROID_BUILD_PATH'],
+            groups: groups,
+            release_notes: release_notes
+        )
+    end
+   
+end
+
+platform :ios do
+
+    lane :bump do |options| 
+        if !['patch', 'minor', 'major', 'build'].include?(options[:type])
+            raise "Bump type must be passed: fastlane ios type:<bump type>"
+        end
+
+        if options[:type] != 'build'
+            increment_version_number_in_xcodeproj(xcodeproj: ENV['IOS_PROJECT_DIR'], bump_type: options[:type])
+        else
+            increment_build_number_in_xcodeproj(xcodeproj: ENV['IOS_PROJECT_DIR'])
+        end
+    end
+    
+    lane :match_provisioning_profiles do |options|
+        match(
+            type: options[:type],
+            app_identifier: ENV['IOS_APP_IDENTIFIERS'],
+            username: ENV['IOS_USERNAME'],
+            team_id: ENV['IOS_TEAM_ID'],
+            team_name: ENV['IOS_TEAM_NAME'],
+            git_branch: ENV['IOS_CERTIFICATES_BRANCH'],
+            force: true
+        )
+    end
+
+    lane :appdistribution do |options|
+        version = get_version_number(xcodeproj: ENV["IOS_PROJECT_DIR"])
+        build_number = get_build_number(xcodeproj: ENV['IOS_PROJECT_DIR'])
+
+        match_provisioning_profiles(type: 'adhoc')
+
+        profile = ''
+       
+        build_app(
+            workspace: ENV['IOS_WORKSPACE'],
+            configuration: 'Release',
+            scheme: 'cantine',
+            export_method: 'ad-hoc',
+            export_options: {
+              method: 'ad-hoc',
+              provisioningProfiles: {
+                "com.bundle.id" => profile,
+              },
+            },
+            include_bitcode: true,
+            clean: true,
+            xcargs: "PROVISIONING_PROFILE_SPECIFIER='#{profile}'",
+          )
+          
+          release_notes = get_release_notes()
+
+          groups = options[:type] == "internal" ? ENV['FIREBASE_IOS_TESTER_GROUPS_INTERNAL'] : ENV['FIREBASE_IOS_TESTER_GROUPS']
+  
+          firebase_app_distribution(
+                app: ENV['FIREBASE_IOS_APP_ID'],
+                groups: groups,
+                release_notes: release_notes
+            )
+
+    end
+
+end
