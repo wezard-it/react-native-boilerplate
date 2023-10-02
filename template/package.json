@@ -16,12 +16,15 @@
     "typecheck": "tsc --extendedDiagnostics --noEmit --project .",
     "prepare": "husky install",
     "revert:commit": "git reset --soft HEAD~1",
-    "bump-patch": "npm version patch --no-git-tag-version && bundle exec fastlane bump",
-    "bump-minor": "npm version minor --no-git-tag-version && bundle exec fastlane bump",
-    "bump-major": "npm version major --no-git-tag-version && bundle exec fastlane bump",
+    "ci:ios:match": "bundle exec fastlane ios match_provisioning_profiles",
+    "ci:ios:bump": "bundle exec fastlane ios bump",
+    "ci:ios:deploy-staging": "bundle exec fastlane ios appdistribution",
+    "ci:android:bump": "bundle exec fastlane android bump",
+    "ci:android:deploy-staging": "bundle exec fastlane android appdistribution",
     "watchman:clean": "watchman watch-del-all",
-    "postinstall": "npx react-native setup-ios-permissions && patch-package",
-    "pods": "npx pod-install"
+    "pods": "npx pod-install",
+    "postinstall": "yarn pods",
+    "preinstall": "yarn audit"
   },
   "keywords": [
     "react-native",
