@@ -1,6 +1,6 @@
-import { REACT_NATIVE_API_URL, REACT_NATIVE_API_VERSION } from '@env'
+import Config from 'react-native-config'
 
 export const getEnvs = (): { [key: string]: string } => ({
-  API_URL: REACT_NATIVE_API_URL!,
-  API_VERSION: REACT_NATIVE_API_VERSION!,
+  API_URL: Config.REACT_NATIVE_API_URL!,
+  API_VERSION: Config.REACT_NATIVE_API_VERSION!,
 })
